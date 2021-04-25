@@ -1,0 +1,14 @@
+form{
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+}
+label{
+    /* background-color: red; */
+    display: inline-flex;
+    margin-top: 1.5vh;
+    margin-left: 2vh;
+}
+label > input {
+    width: 70%;
+}
