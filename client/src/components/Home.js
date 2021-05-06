@@ -1,15 +1,17 @@
 import React from "react";
 import FromIoT from "./FormIoT";
-import '../style/Home.css';
+import Navbar from "./Navbar";
+import "../style/Home.css";
 
-class Home extends React.Component{
-    render(){
-        return (
-            <div className = "home">
-                <FromIoT/>
-            </div>
-        );
-    }
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+          {/* <FromIoT /> */}
+          <Navbar/>
+      </div>
+    );
+  }
 }
 
 export default Home;

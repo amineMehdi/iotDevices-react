@@ -1,28 +1,44 @@
 :root{
-    --width-form : 50%;
-    --width-span : 35%;
-    --width-input: 70%;
+    --width-form : 40%;
+    --width-span : 30%;
+    --width-input: 65.8%;
+    --width-select: 69%;
     --font-input: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --blue-form: #1e85f0;
+    --blue-form: hsl(211, 88%, 53%);
+    --blue-form-hover: hsl(211, 74%, 35%);
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+
 }
 form{
     display: flex;
     width: var(--width-form);
     flex-direction: column;
+    position: relative;
+    box-shadow: 0px 0px 18px 2px #000000;
+    padding: 50px;
+    border-radius: 8px;
 }
 label{
     display: inline-flex;
+    flex-wrap: wrap;
     margin-top: 1vh;
-    margin-left: 2vh;
 }
 
 label > span{
     min-width: var(--width-span);
 }
-label > div, textarea, .input-form{
-    width: var(--width-input);
+label > div{
+    width: var(--width-select);
 }
 .input-form, textarea {
+    width: var(--width-input);
     border-radius: 4px;
     border: 1.5px solid #c5c5c5;
     padding: 7px 14px;
@@ -30,7 +46,7 @@ label > div, textarea, .input-form{
     font-family: var(--font-input);
 }
 .input-form{
-    height: 20px;
+    height: 25px;
 }
 .input-form:focus, textarea:focus{
     outline: none;
@@ -39,4 +55,48 @@ label > div, textarea, .input-form{
 
 .btn-submit{
     background-color: var(--blue-form);
+    outline: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 35px;
+    width: 100px;
+}
+
+.btn-submit:hover {
+    background-color: var(--blue-form-hover);
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+.close-btn{
+    position: relative;
+    left: 97%;
+    top: -7%;
+}
+.close-btn > button{
+    outline: none;
+    border: none;
+    background-color: white;
+    font-size: 21px;
+    font-weight: bold;
+
+}
+.close-btn > button:hover{
+    color: var(--blue-form-hover);
+}
+@media only screen and (max-width: 600px){
+
+    form, label > div, label > span, .input-form, textarea{
+        width: 100%;
+    }
+    label > span {
+        margin-bottom: 1vh;
+    }
+    .form-container{
+        display: block;
+        width: 110vw; 
+    }
 }
