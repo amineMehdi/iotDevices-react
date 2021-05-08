@@ -13,14 +13,10 @@
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px){
-
-}
 form{
     display: flex;
     width: var(--width-form);
     flex-direction: column;
-    position: relative;
     box-shadow: 0px 0px 18px 2px #000000;
     padding: 50px;
     border-radius: 8px;
@@ -53,21 +49,7 @@ label > div{
     border: 2px solid var(--blue-form);
 }
 
-.btn-submit{
-    background-color: var(--blue-form);
-    outline: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 16px;
-    border: none;
-    height: 35px;
-    width: 100px;
-}
-
-.btn-submit:hover {
-    background-color: var(--blue-form-hover);
-}
-.btn-container{
+.submit-btn-container{
     display: flex;
     justify-content: center;
 }

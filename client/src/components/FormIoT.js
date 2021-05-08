@@ -18,6 +18,12 @@ class FromIoT extends React.Component {
   }
   handleSubmit(event) {
     console.log(this.state);
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type:' : 'application/json' },
+      body: {...this.state}
+    };
+    const await
     event.preventDefault();
     this.setState({
       ...this.initState,
@@ -64,7 +70,7 @@ class FromIoT extends React.Component {
       { value: "other", label: "Other" },
     ];
     return (
-      <div className="form-container">
+      <div className="form-container" style={{display: this.props.display ? "block": "none"}}>
         <form>
           <div className="close-btn">
             <button onClick={(event) => this.closeForm(event)}>X</button>
@@ -148,11 +154,11 @@ class FromIoT extends React.Component {
             />
           </label>
           <br />
-          <div className="btn-container">
+          <div className="submit-btn-container">
             <button
               type="submit"
               value="Submit"
-              className="btn-submit"
+              className="btn"
               onClick={this.handleSubmit}
             >
               Submit
