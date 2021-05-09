@@ -1,8 +1,8 @@
-const IotDevice = require("../models/iotDevice.js");
+const IotDevice = require("../models/iotDevice.js").model;
 
 const getAllDevices = async (_,res) => {
     const allDevices = await IotDevice.find();
-    res.json({allDevices});
+    res.json(allDevices);
 };
 
 const addIotDevice = async (req, res) => {

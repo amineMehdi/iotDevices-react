@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const dbHost = "localhost";
 const dbPort = 27017;
 const dbName = "iotBase";
-const dbURI = `mongodb://${dbHost}: ${dbPort}/${dbName}`;
+const dbURI = `mongodb://${dbHost}:${dbPort}/${dbName}`;
 
 const dbConnection = mongoose.createConnection(dbURI, {
   useNewUrlParser: true,

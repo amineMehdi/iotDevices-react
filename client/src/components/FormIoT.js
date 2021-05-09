@@ -1,34 +1,42 @@
 import React from "react";
 import Select from "react-select";
 import "../style/FormIoT.css";
+import axios from "axios";
 class FromIoT extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      number: "",
-      description: "",
-      type: "other",
-      functionTime: 1,
-      temperature: 20,
-      online: "on",
+      data: {
+        name: "",
+        number: "",
+        description: "",
+        type: "other",
+        functionTime: 1,
+        temperature: 20,
+        online: "on",
+      }
+      
     };
     this.initState = { ...this.state };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(event) {
-    console.log(this.state);
+  async handleSubmit(event) {
+    // console.log(this.state);
     const requestOptions = {
-      method: 'POST',
-      headers: {'Content-Type:' : 'application/json' },
-      body: {...this.state}
+      "method": "POST",
+      "headers": { "Content-Type:": "application/json" },
+      "body": JSON.stringify({ ...this.state }),
     };
-    const await
-    event.preventDefault();
+    // fetch("http://localhost:4200/", requestOptions)
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
+    const response = await axios.post("http://localhost:4200", {...this.state})
     this.setState({
       ...this.initState,
       value: null,
     });
+    event.preventDefault();
   }
   handleChange(event, meta = null) {
     if (meta) {
@@ -70,7 +78,10 @@ class FromIoT extends React.Component {
       { value: "other", label: "Other" },
     ];
     return (
-      <div className="form-container" style={{display: this.props.display ? "block": "none"}}>
+      <div
+        className="form-container"
+        style={{ display: this.props.display ? "block" : "none" }}
+      >
         <form>
           <div className="close-btn">
             <button onClick={(event) => this.closeForm(event)}>X</button>
